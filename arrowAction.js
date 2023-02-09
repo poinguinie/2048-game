@@ -1,6 +1,12 @@
 // 추후 사용자 입력하여 테이블 사이즈 조절
 let table_length = 0;
 let empty_list = [];
+let score = 0;
+
+const init = () => {
+    score = 0;
+    initTable();
+}
 
 const makeTable = () => {
     table_length = 5;
@@ -20,6 +26,9 @@ const makeTable = () => {
 }
 
 const initTable = () => {
+    $(function() {
+        $("#score").text(`${score}`);
+    })
     Array.from($(".column")).forEach(function(column, index) {
         $(column).attr("class", "column");
         $(column).text("");
@@ -28,6 +37,9 @@ const initTable = () => {
 
 const drawTable = (table) => {
     initTable();
+    $(function() {
+        $("#score").text(`${score}`);
+    })
     for(let r = 0; r < table_length; r++) {
         for(let c = 0; c < table_length; c++) {
             if (table[r][c] !== 0) {
@@ -98,6 +110,7 @@ const arrowAction = async (direction) => {
             table[r] = await table[r].filter((col) => col > 0);
             for(let c = 0; c < table[r].length - 1; c++) {
                 if(table[r][c] === table[r][c + 1]) {
+                    score += table[r][c];
                     table[r][c] *= 2;
                     table[r][c + 1] = 0;
                 }
@@ -114,6 +127,7 @@ const arrowAction = async (direction) => {
             table[r] = await table[r].filter((col) => col > 0);
             for(let c = 0; c < table[r].length - 1; c++) {
                 if(table[r][c] === table[r][c + 1]) {
+                    score += table[r][c];
                     table[r][c] *= 2;
                     table[r][c + 1] = 0;
                 }
@@ -131,6 +145,7 @@ const arrowAction = async (direction) => {
             table[r] = await table[r].filter((col) => col > 0);
             for(let c = 0; c < table[r].length - 1; c++) {
                 if(table[r][c] === table[r][c + 1]) {
+                    score += table[r][c];
                     table[r][c] *= 2;
                     table[r][c + 1] = 0;
                 }
@@ -149,6 +164,7 @@ const arrowAction = async (direction) => {
             table[r] = await table[r].filter((col) => col > 0);
             for(let c = 0; c < table[r].length - 1; c++) {
                 if(table[r][c] === table[r][c + 1]) {
+                    score += table[r][c];
                     table[r][c] *= 2;
                     table[r][c + 1] = 0;
                 }
@@ -163,6 +179,8 @@ const arrowAction = async (direction) => {
 
     drawTable(table);
 
+    console.log(score);
+
     setTimeout(() => {
         for(let r = 0; r < table_length; r++) {
             for(let c = 0; c < table[r].length; c++) {
@@ -170,7 +188,7 @@ const arrowAction = async (direction) => {
             }
         }
 
-        console.log(empty_list);
+        // console.log(empty_list);
     
         let randomValue = Math.floor(Math.random() * empty_list.length);
         let addElem = empty_list[randomValue];
