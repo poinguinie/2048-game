@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;200;300;400;500;600;700&display=swap');
+
+* {
+    padding: 0;
+    box-sizing: content-box;
+    font-family: 'Roboto Mono', monospace;
+}
+.wrap {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.header h2 {
+    font-weight: 700;
+}
+.score-area {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-bottom: 12px;
+    height: 4%;
+}
+.score-area p {
+    font-weight: 500;
+}
+.board-area .table {
+    /*border: 1px solid black;*/
+    border-radius: 12px;
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+}
+.board-area .table .row {
+    display: flex;
+    flex-direction: row;
+}
+.board-area .table .row .column {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    margin: 4px;
+    width: 4.5rem;
+    height: 4.5rem;
+    border: 1px solid #EAB7B7;
+    background-color: #FFC3C3;
+    color: black;
+    border-radius: 4px;
+    box-shadow: 1px 1px 1px gray;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+.board-area .table .row .column.num-2 {
+    background-color: #EA4141;
+}
+.board-area .table .row .column.num-4 {
+    background-color: #E27016;
+}
+.board-area .table .row .column.num-8 {
+    background-color: #B4A831;
+}
+.board-area .table .row .column.num-16 {
+    background-color: #84CBC8;
+}
+.board-area .table .row .column.num-32 {
+    background-color: #396CD1;
+}
+.board-area .table .row .column.num-64 {
+    background-color: #6DEE28;
+}
+.board-area .table .row .column.num-128 {
+    background-color: #CDCEEA;
+}
+.board-area .table .row .column.num-256 {
+    background-color: #EFC132;
+}
+.board-area .table .row .column.num-512 {
+    background-color: #7A5188;
+}
+.board-area .table .row .column.num-1024 {
+    background-color: #F1AB6D;
+}
+.board-area .table .row .column.num-2048 {
+    background-color: #468126;
+}
+.board-area .table .row .column.num-4096 {
+    background-color: #E5A492;
+}
+.board-area .table .row .column.num-8192 {
+    background-color: #B9A5CB;
+}
+.board-area .table .row .column.num-16384 {
+    background-color: #51DE53;
+}
+.button-area {
+    width: 30%;
+    height: 15vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.button-area button {
+    width: 120px;
+    height: 40px;
+    background-color: white;
+    border: 1px solid #3B2F2F;
+    box-shadow: 2px 2px 1px #191717;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: 0.2s;
+    font-weight: 600;
+}
+.button-area button:hover {
+    box-shadow: 3px 3px 3px #191717;
+    background-color: #F94747;
+    color: white;
+}
