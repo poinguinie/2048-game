@@ -2,6 +2,7 @@
 let table_length = 0;
 let empty_list = [];
 let score = 0;
+let isGameOver = false;
 
 const init = () => {
     score = 0;
@@ -73,6 +74,11 @@ const calcTable = (table, arrow) => {
 }
 
 const arrowAction = async (direction) => {
+
+    if (isGameOver === true) {
+        alert("Press the Retry Button");
+        return;
+    }
     /*
     *\@param direction
     * 0 : LEFT
@@ -188,10 +194,18 @@ const arrowAction = async (direction) => {
             }
         }
 
+        if (empty_list.length === 0) {
+            isGameOver = true;
+            alert("Game Over");
+            return;
+        }
+
         // console.log(empty_list);
     
         let randomValue = Math.floor(Math.random() * empty_list.length);
         let addElem = empty_list[randomValue];
+
+        
     
         table[addElem[0]][addElem[1]] = 2;
     
@@ -201,7 +215,5 @@ const arrowAction = async (direction) => {
 
     
 
-    if (empty_list.length === (table.length * table_length) - 1) {
-        alert("Game Over");
-    }
+    
 };

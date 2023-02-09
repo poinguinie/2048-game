@@ -4,7 +4,7 @@
  */
 $(function() {
     
-    let table_size = 5;
+    let table_size = 3;
     let isStart = false;
     const start = () => {
         isStart = true;
